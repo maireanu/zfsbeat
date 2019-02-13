@@ -1,0 +1,2 @@
+zfsbeat:
+  period: 1s

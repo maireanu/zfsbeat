@@ -1,0 +1,28 @@
+{
+    "@timestamp": "2017-10-12T08:05:34.853Z",
+    "agent": {
+        "hostname": "host.example.com",
+        "name": "host.example.com"
+    },
+    "event": {
+        "dataset": "prometheus.collector",
+        "duration": 115000,
+        "module": "prometheus"
+    },
+    "metricset": {
+        "name": "collector"
+    },
+    "prometheus": {
+        "labels": {
+            "interval": "15s"
+        },
+        "metrics": {
+            "prometheus_target_interval_length_seconds_count": 1,
+            "prometheus_target_interval_length_seconds_sum": 15.000226176
+        }
+    },
+    "service": {
+        "address": "172.29.0.2:9090",
+        "type": "prometheus"
+    }
+}
