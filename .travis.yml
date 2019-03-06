@@ -38,7 +38,23 @@ install:
   - true
 
 script:
-  - make $TARGETS
+  - go get
+  - make
+  - export REPO=maireanu/zfsbeat
+  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH; fi`
+  - echo "$DOCKER_PASS" | docker login --username "$DOCKER_USER" --password-stdin
+  - docker build --pull --force-rm -t $REPO:$TAG .
+  - docker push $REPO:$TAG
+
+deploy:
+  provider: releases
+  api_key:
+    secure: $GH_TOKEN
+  skip_cleanup: true
+  file:
+    - consulbeat
+  on:
+tags: true  
 
 after_success:
   # Copy full.cov to coverage.txt because codecov.io requires this file
