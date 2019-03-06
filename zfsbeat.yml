@@ -10,7 +10,8 @@ zfsbeat:
 
 # The name of the shipper that publishes the network data. It can be used to group
 # all the transactions sent by a single shipper in the web interface.
-#name:
+name: "Zfsbeat"
+seccomp.enabled: false 
 
 # The tags of the shipper are included in their own field with each
 # transaction published.
