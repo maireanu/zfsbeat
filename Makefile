@@ -15,11 +15,7 @@ MAGE_IMPORT_PATH=${BEAT_PATH}/vendor/github.com/magefile/mage
 
 # Initial beat setup
 .PHONY: setup
-setup: pre-setup git-init update git-add
-
-pre-setup: copy-vendor git-init
-	$(MAKE) -f $(LIBBEAT_MAKEFILE) mage
-	$(MAKE) -f $(LIBBEAT_MAKEFILE) update BEAT_NAME=$(BEAT_NAME) ES_BEATS=$(ES_BEATS) NO_COLLECT=$(NO_COLLECT)
+setup: copy-vendor git-init update git-add
 
 # Copy beats into vendor directory
 .PHONY: copy-vendor
@@ -37,8 +33,8 @@ git-init:
 .PHONY: git-add
 git-add:
 	git add -A
-	git commit -m "Add generated zfsbeat files"
-	
+	git commit -m "Add generated consulbeat files"
+
 # Collects all dependencies and then calls update
 .PHONY: collect
 collect:
