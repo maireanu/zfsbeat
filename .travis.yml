@@ -52,7 +52,7 @@ deploy:
     secure: $GH_TOKEN
   skip_cleanup: true
   file:
-    - consulbeat
+    - zfsbeat
   on:
 tags: true  
 
