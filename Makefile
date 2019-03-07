@@ -8,14 +8,14 @@ LIBBEAT_MAKEFILE=$(ES_BEATS)/libbeat/scripts/Makefile
 GOPACKAGES=$(shell govendor list -no-status +local)
 GOBUILD_FLAGS=-i -ldflags "-X $(BEAT_PATH)/vendor/github.com/elastic/beats/libbeat/version.buildTime=$(NOW) -X $(BEAT_PATH)/vendor/github.com/elastic/beats/libbeat/version.commit=$(COMMIT_ID)"
 MAGE_IMPORT_PATH=${BEAT_PATH}/vendor/github.com/magefile/mage
-NO_COLLECT=true
+#NO_COLLECT=true
 
 # Path to the libbeat Makefile
 -include $(LIBBEAT_MAKEFILE)
 
 # Initial beat setup
 .PHONY: setup
-setup: pre-setup git-add
+setup: pre-setup git-init update git-add
 
 pre-setup: copy-vendor git-init
 	$(MAKE) -f $(LIBBEAT_MAKEFILE) mage
@@ -38,3 +38,7 @@ git-init:
 git-add:
 	git add -A
 	git commit -m "Add generated zfsbeat files"
+	
+# Collects all dependencies and then calls update
+.PHONY: collect
+collect:
