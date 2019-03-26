@@ -5,10 +5,18 @@ package config
 
 import "time"
 
+//Config for period
 type Config struct {
-	Period time.Duration `config:"period"`
+	Period           time.Duration `config:"period"`
+	SourceZpool      bool          `config:"source_zpool"`
+	SourceFilesystem bool          `config:"source_filesystem"`
+	SourceSnapshot   bool          `config:"source_snapshot"`
 }
 
+//DefaultConfig configuration for period
 var DefaultConfig = Config{
-	Period: 1 * time.Second,
+	Period:           1 * time.Second,
+	SourceZpool:      true,
+	SourceFilesystem: true,
+	SourceSnapshot:   true,
 }

@@ -5,6 +5,9 @@
 zfsbeat:
   # Defines how often an event is sent to the output
   period: 1s
+  source_zpool: true
+  source_filesystem: true
+  source_snapshot: true
 
 #================================ General =====================================
 
