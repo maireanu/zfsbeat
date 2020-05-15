@@ -19,19 +19,19 @@ https://github.com/maireanu/zfsbeat/releases
 Get the config zfsbeat.yml file example from the repo and adjust according to your needs
 
 zfsbeat:
-  # Defines how often an event is sent to the output
+  #### Defines how often an event is sent to the output
   period: 1s
-  # Defines the information needed from the beat
+  #### Defines the information needed from the beat
   source_zpool: true
   source_filesystem: true
   source_snapshot: true
   
-# Defines the output of the beat
+#### Defines the output of the beat
 output.logstash:
-  # Array of hosts to connect to.
+  #### Array of hosts to connect to.
   hosts: ["localhost:5044"]  
 
-# Run the beat
+### Run the beat
 
 The beat needs to have enought permision in order to use the zfs
 you can give permisions by using zfs delegate ( if the zfs version is > 0.7.0 )  or by running it under the root user
@@ -39,7 +39,7 @@ https://docs.oracle.com/cd/E23823_01/html/819-5461/gbchv.html#scrolltoc
 
 ./zfsbeat -c zfsbeat.yml &
 
-# In order to run it on debug mode use
+#### In order to run it on debug mode use
 ./zfsbeat -c zfsbeat.yml -e -d "*"
 
 
