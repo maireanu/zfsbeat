@@ -18,6 +18,7 @@ https://github.com/maireanu/zfsbeat/releases
 
 Get the config zfsbeat.yml file example from the repo and adjust according to your needs
 
+```
 zfsbeat:
   #### Defines how often an event is sent to the output
   period: 1s
@@ -30,6 +31,7 @@ zfsbeat:
 output.logstash:
   #### Array of hosts to connect to.
   hosts: ["localhost:5044"]  
+```
 
 ### Run the beat
 
