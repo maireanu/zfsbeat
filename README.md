@@ -26,7 +26,10 @@ zfsbeat:
   source_zpool: true
   source_filesystem: true
   source_snapshot: true
-  
+
+name: "Zfsbeat"
+seccomp.enabled: false 
+
 # Defines the output of the beat
 output.logstash:
   # Array of hosts to connect to.
