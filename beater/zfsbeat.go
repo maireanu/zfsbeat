@@ -73,7 +73,7 @@ func (bt *Zfsbeat) Run(b *beat.Beat) error {
 				event := beat.Event{
 					Timestamp: time.Now(),
 					Fields: common.MapStr{
-						"source":                "filesystem",
+						"zfsbeat_source":        "filesystem",
 						"name":                  filesystem.Name,
 						"available":             filesystem.Available,
 						"clones":                filesystem.Clones,
@@ -152,7 +152,7 @@ func (bt *Zfsbeat) Run(b *beat.Beat) error {
 				event := beat.Event{
 					Timestamp: time.Now(),
 					Fields: common.MapStr{
-						"source":                "snapshot",
+						"zfsbeat_source":        "snapshot",
 						"name":                  snapshot.Name,
 						"available":             snapshot.Available,
 						"clones":                snapshot.Clones,
@@ -231,7 +231,7 @@ func (bt *Zfsbeat) Run(b *beat.Beat) error {
 				event := beat.Event{
 					Timestamp: time.Now(),
 					Fields: common.MapStr{
-						"source":                    "zpool",
+						"zfsbeat_source":            "zpool",
 						"name":                      pool.Name,
 						"size":                      pool.Size,
 						"capacity":                  pool.Capacity,
